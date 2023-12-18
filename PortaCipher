@@ -1,0 +1,13 @@
+char* change (char* txt, char* key, char* table) 
+{
+  char* result = new char[strlen(txt) + 1];
+  result[strlen(txt)] = '\0';
+  for(int i = 0; txt[i]; i++) {
+    if((txt[i] >= 'a' && txt[i] <= 'z')) {
+      result[i] = table[((key[i % strlen(key)] - 'a') / 2) * 26 + txt[i] - 'a'];
+    } else {
+      result[i] = txt[i];
+    }
+  }
+  return result;
+}
